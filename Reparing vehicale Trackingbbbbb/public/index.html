@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>AutoPortal</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
+    </head>
+
+<body ng-app="app" ng-controller="appctrl">
+    <!-- Shell -->
+    <div class="container">
+        <div class="row">
+
+            <div class="shell">
+                <!-- Header -->
+                <div id="header">
+                    <!-- Logo -->
+                    <h1 id="logo"><a href="#">Autoportal your friend on the road</a></h1>
+                    <!-- End Logo -->
+                    <!-- Navigation -->
+                    <div id="nav">
+                        <ul>
+                            <li><a class="active" href="#/home">Home</a></li>
+                            <li ng-if="check()"><a href="#/about">Profile</a></li>
+                            <li ng-if="check()" ng-click="logout()" class="logout">log Out</li>
+                        </ul>
+                    </div>
+                    <!-- End Navigation -->
+                </div>
+                <!-- End Header -->
+                <!-- Content -->
+                <div id="content">
+                    <!-- Sidebar -->
+                    <div id="sidebar">
+                        <!-- Search -->
+                        <form action="#/search" class="search" method="post">
+                            <div class="cl">&nbsp;</div>
+                            <input type="text" class="field blink" value="While Waiting search For Your Old Or Modern Favorite Car" title="search" />
+                            <div class="btnp">
+                               <a href="#/search" ><input id="btnn"type="submit" value="go" class="up"/></a>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </form>
+                        <!-- End Search -->
+                        <!-- Sign In Links -->
+                        <div class="links">
+                            <div class="cl">&nbsp;</div>
+                            <a href="#/signin" class="left">Sign In</a> <a href="#/signup" class="right">Create account</a>
+                            <div class="cl">&nbsp;</div>
+                        </div>
+                        <!-- End Sign In Links -->
+                        <!-- Box Latest News -->
+                        <div class="box">
+                            <h2 ng-if="priv===employee">Your Lacation</h2>
+                             <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+    </div>
+                               <form id="cont"name="searchForm" novalidate 
+    ng-submit="search()">
+        <div class="input-group">
+            <input name="place" type="text" class="form-control" 
+            ng-model="searchPlace" required autofocus />
+            <span class="input-group-btn">
+                <button class="btn btn-primary" id="pad"
+                ng-disabled="searchForm.$invalid">Search</button>
+            </span>
+        </div>
+    </form>
+        
+    <div id="map"></div>
+      
+    <form id="cont" name="resForm" class="form-horizontal" novalidate 
+    ng-submit="send()">
+        <div class="form-group">
+            <label for="resName" class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-10">
+                <input name="resName" type="text" class="form-control" 
+                ng-model="place.name" required />
+            </div>
+        </div>
+         <div class="form-group">
+            <label for="repair" class="col-xs-2 control-label">Problem Descrption</label>
+         <div class="col-xs-10">
+                <textarea name="repair" type="text" class="form-control" 
+                ng-model="place.desc" required></textarea>
+             </div>
+        </div>
+         <div class="form-group">
+            <label for="phone" class="col-xs-2 control-label">Your Phone Number</label>
+         <div class="col-xs-10">
+                <input name="phone" type="tel" ng-model="place.phone"class="form-control">
+             </div>
+        </div>
+        <div class="form-group">
+            <label for="resLat" class="col-xs-2 control-label">Latitude</label>
+            <div class="col-xs-10">
+                <input name="resLat" type="number" class="form-control" 
+                ng-model="place.lat" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="resLng" class="col-xs-2 control-label">Longitude</label>
+            <div class="col-xs-10">
+                <input name="resLng" type="number" class="form-control" 
+                ng-model="place.lng" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button id="cont"class="btn btn-success" 
+                ng-disabled="resForm.$invalid">Confirm</button>
+            </div>
+        </div>
+    </form>
+<!--
+-->
+                            <div class="cl">&nbsp;</div>
+                        </div>
+                        <div class="box" >
+                            <h2>Contact Us</h2>
+                            <div id="cont">
+                            <p>Tel:009613041189 - 096171353059 - 0096176649763
+                            </p>
+                                
+                                    <p>Email : vehiclerepairtracking@gmail.com</p>
+                                 </div>
+                                    <h2>Stay on Touch </h2>
+                            <div id="cont">
+                                    <input ng-model="emaile" placeHolder="Email Us">
+                                    <button id="pad"ng-click="sub()">Send</button>
+                        </div>
+                        </div>
+                            </div>
+                        <!-- End Box Latest Posts -->
+                   
+                    <!-- End Sidebar -->
+                    <ng-view></ng-view>
+                    <div class="cl">&nbsp;</div>
+                </div>
+                <!-- End Content -->
+                <!-- Footer -->
+                <div id="footer">
+                    <p>&copy; RMR.com Design by <a href="#">Rima,Radwan ,and Mouhamad</a></p>
+                </div>
+                <!-- End Footer -->
+            </div>
+            <!-- End Shell -->
+        </div>
+    </div>
+            <script src="js/angular.min.js"></script>
+            <script src="js/angular-route.min.js"></script>
+            <script src="app.js"></script>
+            <script src="home/home.js"></script>
+            <script src="about/about.js"></script>
+            <script src="signin/app.signin.js"></script>
+            <script src="signup/app.signup.js"></script>
+            <script src="services/auth.js"></script>
+            <script src="services/priv.js"></script>
+            <script src="services/req.js"></script>
+            <script src="services/token.js"></script>
+            <script src="about/about.js"></script>
+            <script src="services/subrout.js"></script>
+    <script src="search/search.js"></script>
+    <script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDirHfzEVO1YrNjtCbv2MdrUoU4ORSGxZ8&sensor=false&libraries=places">
+  </script>
+
+</body>
+
+</html>

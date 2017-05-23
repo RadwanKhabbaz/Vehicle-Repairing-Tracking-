@@ -1,0 +1,66 @@
+ <div id="main">
+<div class="box">
+<!--
+  <input ng-model="userinput.username" placeholder="Username">
+  <input ng-model="userinput.password1" type="password" placeholder="Password">
+  <input ng-model="userinput.password2" type="password" placeholder="Password Confirmation">
+  <input ng-model="userinput.privilege" type="text" placeholder="Privilege">
+
+  <p>
+    Must be filled out
+    Password1 == Password2
+  </p>
+  <div>
+    <p>{{userinput.username}}</p>
+    <p>{{userinput.password1}}</p>
+    <p>{{userinput.password2}}</p>
+  </div>
+  <button ng-click="signup()" ng-disabled="validate()">Signup</button>
+-->
+
+<!--	<div id="form_wrapper" class="form_wrapper">-->
+					<form class="register">
+						<h2 id="profi">Register</h2>
+                          <div id="log">
+						<div class="column">
+							<div>
+								<label>First Name:</label>
+								<input ng-model="userinput.firstName" class="input"  id="input"type="text" />
+							</div>
+						<br><br>
+							<div>
+								<label>Last Name:</label>
+								<input ng-model="userinput.lastName" class="input" id="input"type="text" />
+							</div><br><br>
+						</div>
+						<div class="column">
+							<div>
+								<label>Username:</label>
+								<input  ng-model="userinput.username"class="input" id="input"type="text"/>
+							</div><br><br>
+							<div>
+								<label>Email:</label>
+								<input ng-model="userinput.email" class="input" id="inp"type="text" />
+							</div><br><br>
+							<div>
+								<label>Password:</label>
+								<input ng-model="userinput.password1" class="input" id="input"type="password" />
+							</div><br><br>
+								<label>Confirm Password:</label>
+								<input ng-model="userinput.password2" class="input" id="blo"type="password" />
+							</div><br><br>
+								<label>Privilage</label>
+								<input ng-model="userinput.privilage" class="input" id="in" type="password" />
+							<br>
+						<div class="bottom" ng-click="signup()" ng-disabled="validate()">
+							<br>
+							<button id="sub"type="submit" value="Register">Register</button> 
+							<a href="#/signin" rel="login" class="linkform">You have an account already?</a><br>
+                            <div class="clear"></div>
+                              <a href="/login/twitter" class="pass">Or Log In with Twitter</a>
+						</div>
+                  
+                        </div>
+					</form>
+					</div>
+    </div>

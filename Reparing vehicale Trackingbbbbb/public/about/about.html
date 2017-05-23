@@ -1,0 +1,48 @@
+<div id="main">
+    
+        <h2 id="profi">Profile</h2>
+        <div ng-init="loadData()">
+            <div ng-repeat="car in carItems track by $index">
+              <div class="box">
+                <div name=" edited" ng-if="!car.isEdit" h>
+                    <h1 style="margin-bottom:10px;">Car Owner: {{car.owner}}</h1>
+                    <h1>Car Brand: {{car.brand}}</h1>
+                    <h3>Car Status: {{car.status}}</h3>
+                    <div ng-repeat="desc in car.repairing track by $index">
+                        <p>{{desc.description}}</p>
+                        <p>{{desc.date}}</p>
+                        <p>{{desc.cost | currency}}</p>
+                    </div>
+                    <p ng-if="priv == emloyee">Account: {{car.username}}</p>
+                    <button  id="edit" ng-click="toggleEdit(car)">Edit</button>
+                    <button id="delete" ng-click="delete(car._id)" ng-if="priv == employee">Delete</button>
+                </div>
+                <button ng-click="insertRepairing(car)">Add New Maintenance</button>
+                <div ng-if="car.reaadyToAddRepairing">
+                <input placeholder="Description" ng-model="repairing.description" type="text">
+                <input placeholder="Date" ng-model="repairing.date" type="date">
+                <input placeholder="Cost" ng-model="repairing.cost" type="number">
+                <button ng-click="addRepairing(car,repairing)">Add this</button>
+                </div>
+                <div name="Show when it is being edited" ng-if="car.isEdit">
+                    <input placeholder="Owner" ng-model="car.owner" type="text">
+                    <input placeholder="Brand" ng-model="car.brand" type="text">
+                    <input placeholder="Status" ng-model="car.status" type="text">
+<!--
+                    <input placeholder="Description" ng-model="car.repairing.description" type="text">
+                    <input placeholder="Date" ng-model="car.repairing.date" type="date">
+                    <input placeholder="Cost" ng-model="car.repairing.cost" type="number">
+-->
+                    <button ng-click="saveData(car._id, car)">Save</button>
+                </div>
+            </div>
+           </div>
+            <div>
+                <button ng-click="addData()">Add New Car</button>
+                <input placeholder="Owner" ng-model="userinput.owner" type="text">
+                <input placeholder="Brand" ng-model="userinput.brand" type="text">
+                <input placeholder="Status" ng-model="userinput.status" type="text">
+                
+            </div>
+        </div>
+    </div>

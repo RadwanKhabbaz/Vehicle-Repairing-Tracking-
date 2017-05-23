@@ -1,0 +1,17 @@
+  <div id="main">
+<div class="box">
+<input ng-model="imageRequest" class="form-control" placeholder="Favorite Cars" />
+                    <button type="submit" class="btn btn-outline-primary" ng-click='ImageSearch();NewImg()'>Search</button>
+                    <label>Images found: {{imagesFound}}</label>
+<!--    | startFrom: startingItem() | limitTo: itemsPerPage-->
+            <div class="row" ng-repeat="item in imgArr | startFrom :startingItem()| limitTo: itemsPerPage ">
+                <img class="img"ng-src="{{item}}" class="img-fluid rounded" />
+            </div>
+          
+                <div class="pagination" ng-show="paginationShow" class="ng-hide">
+                    <button class="pull-left btn btn-outline-primary" ng-disabled="firstPage()" ng-click="pageBack()">Prev</button>
+                    <span>{{currentPage+1}} из {{numberOfPages()}}</span>
+                    <button class="pull-right  btn btn-outline-primary" ng-disabled="lastPage()" ng-click="pageForward()">Next</button>
+    </div>
+      </div>
+      </div>

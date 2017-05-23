@@ -1,0 +1,27 @@
+<div id="main">
+    <div class="box">
+        <form class="login active">
+            <h2 id="profi">Login</h2>
+            <div id="log">
+                <div>
+                    <label>Username:</label>
+                    <input ng-model="userinput.username" type="text" />
+                </div>
+                <br>
+                <div>
+                    <label>Password: </label>
+                    <input ng-model="userinput.password" type="password" />
+
+                </div>
+                <br>
+                <button class="bottom" ng-click="signin()" id="btnn"type="submit" value="Login">Login
+                </button>
+                <a href="#/signup" >Register Here</a>
+<!--                <a href="forgot_password.html" rel="forgot_password" class="forgot linkform">Forgot your password?</a>-->
+
+
+            </div>
+        </form>
+
+    </div>
+</div>
